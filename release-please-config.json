@@ -5,6 +5,7 @@
       "release-type": "node",
       "changelog-path": "CHANGELOG.md",
       "include-component-in-tag": false,
+      "initial-version": "0.1.0",
       "extra-files": [
         {
           "type": "json",
@@ -13,16 +14,49 @@
         }
       ],
       "changelog-sections": [
-        { "type": "feat", "section": "🚀 Features" },
-        { "type": "fix", "section": "🐛 Bug Fixes" },
-        { "type": "perf", "section": "⚡️ Performance" },
-        { "type": "refactor", "section": "🧼 Code Refactoring" },
-        { "type": "docs", "section": "📚 Documentation" },
-        { "type": "build", "section": "🏗️ Build System" },
-        { "type": "ci", "section": "🤖 Continuous Integration" },
-        { "type": "test", "section": "🧪 Testing", "hidden": true },
-        { "type": "style", "section": "🎨 Styles", "hidden": true },
-        { "type": "chore", "section": "🧹 Chore", "hidden": true }
+        {
+          "type": "feat",
+          "section": "🚀 Features"
+        },
+        {
+          "type": "fix",
+          "section": "🐛 Bug Fixes"
+        },
+        {
+          "type": "perf",
+          "section": "⚡️ Performance"
+        },
+        {
+          "type": "refactor",
+          "section": "🧼 Code Refactoring"
+        },
+        {
+          "type": "docs",
+          "section": "📚 Documentation"
+        },
+        {
+          "type": "build",
+          "section": "🏗️ Build System"
+        },
+        {
+          "type": "ci",
+          "section": "🤖 Continuous Integration"
+        },
+        {
+          "type": "test",
+          "section": "🧪 Testing",
+          "hidden": true
+        },
+        {
+          "type": "style",
+          "section": "🎨 Styles",
+          "hidden": true
+        },
+        {
+          "type": "chore",
+          "section": "🧹 Chore",
+          "hidden": true
+        }
       ]
     }
   }
