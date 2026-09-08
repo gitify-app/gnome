@@ -1,0 +1,11 @@
+# Packed extension bundles
+dist/
+
+# Dependency directories
+node_modules/
+.pnpm-store/
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/

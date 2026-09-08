@@ -1,0 +1,18 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:best-practices",
+    ":enableVulnerabilityAlerts",
+    ":semanticCommitTypeAll(chore)",
+    "schedule:weekly"
+  ],
+  "labels": ["dependency"],
+  "rangeStrategy": "pin",
+  "packageRules": [
+    {
+      "description": "Remove word `dependency` from commit messages and PR titles",
+      "matchDatasources": ["npm"],
+      "commitMessageTopic": "{{depName}}"
+    }
+  ]
+}
