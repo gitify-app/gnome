@@ -14,7 +14,7 @@ monitor when the icon cannot be located.
 
 ## Requirements
 
-- GNOME Shell 45 or newer on a Wayland session.
+- GNOME Shell 50 on a Wayland session.
 - Gitify 7.8 or newer.
 - A tray. GNOME Shell has no tray of its own. Install the
   [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
@@ -28,8 +28,8 @@ Gitify positions its own window and this extension is not needed.
 
 ### From extensions.gnome.org
 
-_Pending review on extensions.gnome.org. The link will be added here once the
-extension is published._
+_Not yet submitted to extensions.gnome.org. The link will be added here after
+review and publication._
 
 ### From a release bundle
 
@@ -46,6 +46,10 @@ back in, then enable it:
 ```shell
 gnome-extensions enable gitify@gitify.io
 ```
+
+Gitify 7.8.0 users should enable **Use white tray icon** in Tray settings for
+the default dark GNOME panel. The automatic white-icon fix is in
+[gitify#3297](https://github.com/gitify-app/gitify/pull/3297).
 
 ## How it works
 
@@ -120,7 +124,7 @@ the packed `.shell-extension.zip` to the GitHub release.
 
 Publishing to extensions.gnome.org is a manual step: upload the zip from the
 release at <https://extensions.gnome.org/upload/>. The site assigns the integer
-`version` in `metadata.json` itself, so that field is left alone here.
+`version` in `metadata.json` itself, so that field is omitted here.
 
 ## Credits
 

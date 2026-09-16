@@ -24,7 +24,7 @@ export GDK_BACKEND=wayland
 export LIBGL_ALWAYS_SOFTWARE=1
 mkdir -p "$XDG_DATA_HOME/gnome-shell/extensions" "$XDG_RUNTIME_DIR"
 chmod 700 "$XDG_RUNTIME_DIR"
-gnome-extensions pack --force --out-dir "$test_root" gitify@gitify.io
+gnome-extensions pack --force --extra-source="$PWD/LICENSE" --out-dir "$test_root" gitify@gitify.io
 cp -r tests/shell "$XDG_DATA_HOME/gnome-shell/extensions/smoke-test@gitify.io"
 
 dbus-run-session -- bash -eu -o pipefail <<'SESSION'

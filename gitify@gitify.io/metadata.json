@@ -1,9 +1,8 @@
 {
   "uuid": "gitify@gitify.io",
   "name": "Gitify",
-  "description": "Anchors the Gitify window to its tray icon. Wayland leaves window placement to the compositor, so without this the Gitify popup opens wherever GNOME decides to put it.",
-  "shell-version": ["45", "46", "47", "48", "49", "50"],
+  "description": "Anchors the Gitify window below its tray icon on GNOME Wayland. Requires Gitify and the AppIndicator and KStatusNotifierItem Support extension for tray anchoring. Falls back to the top-right corner when the tray icon is unavailable.",
+  "shell-version": ["50"],
   "url": "https://github.com/gitify-app/gnome",
-  "version-name": "0.0.0",
-  "version": 1
+  "version-name": "0.0.0"
 }

@@ -20,9 +20,10 @@ mkdir -p "$OUT_DIR"
 rm -f "$OUT_FILE"
 
 if command -v gnome-extensions >/dev/null 2>&1; then
-  gnome-extensions pack --force --out-dir "$OUT_DIR" "$SRC_DIR"
+  gnome-extensions pack --force --extra-source="$PWD/LICENSE" --out-dir "$OUT_DIR" "$SRC_DIR"
 else
   (cd "$SRC_DIR" && zip -q -r "../$OUT_FILE" extension.js metadata.json)
+  zip -q -j "$OUT_FILE" LICENSE
 fi
 
 echo "Packed $OUT_FILE"

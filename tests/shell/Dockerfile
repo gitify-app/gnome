@@ -1,4 +1,4 @@
-ARG GNOME_TEST_IMAGE=ubuntu:24.04@sha256:69cecf4bbf72d2d44a9eef1b71fb98c7fb973d78af11399deccef19beb008ad9
+ARG GNOME_TEST_IMAGE=ubuntu:26.04@sha256:cd21a4f68a617580279d4b091cb18e3af9fa8a87500665f0ae5f7f757d17d367
 FROM ${GNOME_TEST_IMAGE}
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -7,6 +7,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-ins
     && rmdir /run/systemd/seats
 
 WORKDIR /work
+COPY LICENSE LICENSE
 COPY gitify@gitify.io gitify@gitify.io
 COPY tests/shell tests/shell
 COPY scripts/test-shell.sh scripts/test-shell.sh

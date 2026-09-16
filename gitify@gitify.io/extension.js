@@ -1,3 +1,5 @@
+// SPDX-License-Identifier: MIT
+// Original extension by Yuriy Matskanyuk (@SiriusCrain), gitify-app/gitify#3297.
 import GLib from 'gi://GLib';
 import { Extension } from 'resource:///org/gnome/shell/extensions/extension.js';
 import * as Main from 'resource:///org/gnome/shell/ui/main.js';

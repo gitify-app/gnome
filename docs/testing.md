@@ -19,7 +19,7 @@ it as a Gitify test client. A test-only extension checks its final frame against
 the primary work area. The script fails on incorrect coordinates, startup
 failure, or a 45-second timeout. It does not modify your installed extensions.
 
-On Ubuntu 24.04, install prerequisites with:
+On Ubuntu 26.04, install prerequisites with:
 
 ```shell
 sudo apt-get install gnome-shell dbus-x11 python3-gi gir1.2-gtk-4.0
@@ -35,8 +35,9 @@ docker run --rm gitify-gnome-test
 
 The image starts its own system bus and uses GNOME's non-systemd login fallback.
 It needs neither privileged mode nor the host's D-Bus socket.
-CI runs this check on Ubuntu 24.04 with GNOME 46 and Ubuntu 26.04 with GNOME 50.
-To build the latter locally, add `--build-arg GNOME_TEST_IMAGE=ubuntu:26.04`.
+CI runs this check on Ubuntu 26.04 with GNOME 50, the version supported by the
+first release. The earlier GNOME 46 results below are exploratory evidence;
+GNOME 46 is not advertised in the release metadata.
 
 ## Gitify tray test
 
@@ -107,8 +108,8 @@ reopened window. The test moved the icon to the panel centre to verify anchoring
 ## Visual VM checks before release
 
 Use a disposable GNOME Wayland VM with a graphical login and a snapshot before
-installation. Start with GNOME 46 and 50, then cover each advertised version
-in `metadata.json` before claiming support. Record the actual Shell and
+installation. Start with GNOME 50. Test older versions separately before
+adding them to `metadata.json`. Record the actual Shell and
 AppIndicator versions, Gitify build, display scale, and session type.
 
 1. Install the built zip with `gnome-extensions install --force`, log out and
