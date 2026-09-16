@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.2.0](https://github.com/gitify-app/gnome/compare/v0.1.0...v0.2.0) (2026-09-16)
+
+
+### 🚀 Features
+
+* guide users through Gitify setup from extension preferences ([8274bde](https://github.com/gitify-app/gnome/commit/8274bde23f6ef94efe302e53b554f5575239e523))
+
+
+### 📚 Documentation
+
+* link the GNOME extension submission ([6318d37](https://github.com/gitify-app/gnome/commit/6318d37317ad771dbf6626fd7e60433623a2edd9))
+
 ## 0.1.0 (2026-09-16)
 
 
