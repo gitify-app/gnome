@@ -14,6 +14,8 @@
   },
   "type": "module",
   "scripts": {
+    "test": "node --experimental-vm-modules --test tests/*.test.js",
+    "test:shell": "bash scripts/test-shell.sh",
     "check": "vp check",
     "check:fix": "vp check --fix",
     "lint": "vp lint --fix",

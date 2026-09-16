@@ -1,0 +1,6 @@
+{
+  "uuid": "smoke-test@gitify.io",
+  "name": "Gitify smoke test driver",
+  "description": "Test-only driver for an isolated GNOME Shell session.",
+  "shell-version": ["45", "46", "47", "48", "49", "50"]
+}

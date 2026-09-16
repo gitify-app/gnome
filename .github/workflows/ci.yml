@@ -11,6 +11,31 @@ on:
 permissions: {}
 
 jobs:
+  shell:
+    name: GNOME ${{ matrix.shell }} Wayland smoke test
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - shell: '46'
+            image: ubuntu:24.04@sha256:69cecf4bbf72d2d44a9eef1b71fb98c7fb973d78af11399deccef19beb008ad9
+          - shell: '50'
+            image: ubuntu:26.04@sha256:cd21a4f68a617580279d4b091cb18e3af9fa8a87500665f0ae5f7f757d17d367
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Build isolated GNOME desktop
+        env:
+          GNOME_TEST_IMAGE: ${{ matrix.image }}
+        run: docker build --build-arg GNOME_TEST_IMAGE="$GNOME_TEST_IMAGE" -f tests/shell/Dockerfile -t gitify-gnome-test .
+      - name: Verify placement in GNOME Wayland
+        run: docker run --rm gitify-gnome-test
+
   lint:
     name: Lint Code [vite-plus]
     runs-on: ubuntu-latest
@@ -31,6 +56,9 @@ jobs:
 
       - name: Run lint and format checks
         run: vp run check
+
+      - name: Test placement and extension lifecycle
+        run: vp run test
 
   lint-actions:
     name: Lint GitHub Actions [actionlint]

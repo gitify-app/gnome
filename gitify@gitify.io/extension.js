@@ -82,7 +82,7 @@ export default class GitifyExtension extends Extension {
  * @param {import('gi://Meta').Window} window
  */
 function place(window) {
-  if (window.is_fullscreen() || window.get_maximized()) {
+  if (window.is_fullscreen() || window.maximized_horizontally || window.maximized_vertically) {
     return;
   }
 
@@ -93,7 +93,7 @@ function place(window) {
 
   const workArea = Main.layoutManager.getWorkAreaForMonitor(Main.layoutManager.primaryIndex);
   const minX = workArea.x + MARGIN;
-  const maxX = workArea.x + workArea.width - frame.width - MARGIN;
+  const maxX = Math.max(minX, workArea.x + workArea.width - frame.width - MARGIN);
   const icon = trayIconRect();
 
   const x =
@@ -126,8 +126,8 @@ function isGitifyWindow(window) {
  * @returns {import('gi://Graphene').Rect | null}
  */
 function trayIconRect() {
-  const entry = Object.values(Main.panel.statusArea).find(
-    (item) => item?._indicator?.id?.toLowerCase() === 'gitify',
+  const entry = Object.values(Main.panel.statusArea).find((item) =>
+    /^gitify(?:_status_icon_\d+)?$/i.test(item?._indicator?.id ?? ''),
   );
   const actor = entry?.container ?? entry;
 

@@ -77,6 +77,12 @@ pnpm check
 # Auto-fix formatting and lint issues
 pnpm check:fix
 
+# Placement and lifecycle regression tests
+pnpm test
+
+# Real GNOME Wayland smoke test, with GNOME Shell and PyGObject installed
+pnpm test:shell
+
 # Build dist/gitify@gitify.io.shell-extension.zip
 pnpm bundle
 ```
@@ -87,8 +93,15 @@ shell:
 
 ```shell
 ln -s "$PWD/gitify@gitify.io" ~/.local/share/gnome-shell/extensions/gitify@gitify.io
-dbus-run-session -- gnome-shell --nested --wayland
+dbus-run-session -- gnome-shell --devkit --wayland
 ```
+
+GNOME 45–48 use `--nested` instead of `--devkit`. GNOME 49 and newer may
+require the `mutter-devkit` package. See the
+[GNOME debugging guide](https://gjs.guide/extensions/development/debugging.html).
+
+See [desktop validation](docs/testing.md) for the isolated compositor test,
+Gitify tray test, and VM checks before release.
 
 Then enable it inside the nested session and launch Gitify from a terminal in
 that session. Shell logs, including anything the extension prints, are
