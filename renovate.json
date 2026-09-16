@@ -10,6 +10,13 @@
   "rangeStrategy": "pin",
   "packageRules": [
     {
+      "description": "Keep the supported Node range separate from the development runtime pin",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "matchPackageNames": ["node"],
+      "rangeStrategy": "widen"
+    },
+    {
       "description": "Remove word `dependency` from commit messages and PR titles",
       "matchDatasources": ["npm"],
       "commitMessageTopic": "{{depName}}"

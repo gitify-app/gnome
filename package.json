@@ -27,8 +27,14 @@
   "devDependencies": {
     "vite-plus": "0.3.1"
   },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "26.9.0"
+    }
+  },
   "engines": {
-    "node": "v26.9.0"
+    "node": ">=24"
   },
   "packageManager": "pnpm@12.4.1"
 }
