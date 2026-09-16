@@ -19,6 +19,14 @@ it as a Gitify test client. A test-only extension checks its final frame against
 the primary work area. The script fails on incorrect coordinates, startup
 failure, or a 45-second timeout. It does not modify your installed extensions.
 
+The default smoke test also opens the packaged setup page with real GTK and
+libadwaita. It checks the missing-app and registered-app states, activates the
+launch and website buttons, and verifies that isolated desktop handlers receive
+the expected actions. It uses a test desktop entry rather than a Gitify account
+or a real browser. Each preferences run has a 30-second timeout. Set
+`GITIFY_PREFS_SCREENSHOT_PREFIX` to an absolute path to keep screenshots of both
+states; otherwise they are removed with the temporary test directory.
+
 On Ubuntu 26.04, install prerequisites with:
 
 ```shell

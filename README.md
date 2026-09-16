@@ -26,6 +26,11 @@ Gitify positions its own window and this extension is not needed.
 
 ## Install
 
+After installing the extension, open its settings in GNOME Extensions or
+Extension Manager for **Set up Gitify**. The page links to the Gitify download
+and AppIndicator setup, and can open Gitify when a desktop installation is
+detected. Portable AppImages may need to be opened from your files.
+
 ### From extensions.gnome.org
 
 [Gitify on GNOME Extensions](https://extensions.gnome.org/extension/10968/gitify/)

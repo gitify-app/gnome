@@ -45,6 +45,9 @@ for ((attempt = 0; attempt < 45; attempt++)); do
       cat "$XDG_RUNTIME_DIR/shell.log" >&2
       exit 1
     fi
+    if [[ "${GITIFY_DESKTOP_TEST:-0}" != 1 ]]; then
+      bash tests/shell/preferences.sh
+    fi
     exit 0
   fi
   kill -0 "$shell_pid" 2>/dev/null || break
