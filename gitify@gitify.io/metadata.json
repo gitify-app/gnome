@@ -4,5 +4,5 @@
   "description": "Anchors the Gitify window below its tray icon on GNOME Wayland. Requires Gitify and the AppIndicator and KStatusNotifierItem Support extension for tray anchoring. Falls back to the top-right corner when the tray icon is unavailable.",
   "shell-version": ["50"],
   "url": "https://github.com/gitify-app/gnome",
-  "version-name": "0.0.0"
+  "version-name": "0.1.0"
 }
