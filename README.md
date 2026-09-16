@@ -28,8 +28,9 @@ Gitify positions its own window and this extension is not needed.
 
 ### From extensions.gnome.org
 
-_Not yet submitted to extensions.gnome.org. The link will be added here after
-review and publication._
+[Gitify on GNOME Extensions](https://extensions.gnome.org/extension/10968/gitify/)
+was submitted on 16 September 2026. Version 0.1.0 targets GNOME Shell 50 and is
+awaiting review. Until it is approved, install the GitHub release bundle below.
 
 ### From a release bundle
 
