@@ -14,7 +14,7 @@ monitor when the icon cannot be located.
 
 ## Requirements
 
-- GNOME Shell 50 on a Wayland session.
+- GNOME Shell 50 or 51 on a Wayland session.
 - Gitify 7.8 or newer.
 - A tray. GNOME Shell has no tray of its own. Install the
   [AppIndicator and KStatusNotifierItem Support](https://extensions.gnome.org/extension/615/appindicator-support/)
@@ -34,8 +34,9 @@ detected. Portable AppImages may need to be opened from your files.
 ### From extensions.gnome.org
 
 [Gitify on GNOME Extensions](https://extensions.gnome.org/extension/10968/gitify/)
-was submitted on 16 September 2026. Version 0.1.0 targets GNOME Shell 50 and is
-awaiting review. Until it is approved, install the GitHub release bundle below.
+provides version 0.1.0 for GNOME Shell 50. For GNOME Shell 51, use a release
+bundle whose metadata includes Shell 51 until that version is published on
+extensions.gnome.org.
 
 ### From a release bundle
 
