@@ -6,6 +6,13 @@ for command in gnome-shell gnome-extensions gsettings dbus-run-session python3; 
   command -v "$command" >/dev/null || { echo "Missing prerequisite: $command" >&2; exit 1; }
 done
 
+shell_version=$(gnome-shell --version)
+echo "$shell_version"
+if [[ -n "${GNOME_TEST_VERSION:-}" && "$shell_version" != "GNOME Shell $GNOME_TEST_VERSION" && "$shell_version" != "GNOME Shell $GNOME_TEST_VERSION."* ]]; then
+  echo "Expected GNOME Shell $GNOME_TEST_VERSION, got $shell_version" >&2
+  exit 1
+fi
+
 test_root=$(mktemp -d)
 trap 'rm -rf "$test_root"' EXIT
 export XDG_DATA_HOME="$test_root/data"

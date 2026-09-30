@@ -43,8 +43,9 @@ docker run --rm gitify-gnome-test
 
 The image starts its own system bus and uses GNOME's non-systemd login fallback.
 It needs neither privileged mode nor the host's D-Bus socket.
-CI runs this check on Ubuntu 26.04 with GNOME 50, the version supported by the
-first release. The earlier GNOME 46 results below are exploratory evidence;
+CI runs this check on Ubuntu 26.04 with GNOME 50 and Ubuntu 26.10 with GNOME 51.
+Each job checks the installed Shell version before starting the compositor.
+The earlier GNOME 46 results below are exploratory evidence;
 GNOME 46 is not advertised in the release metadata.
 
 ## Gitify tray test
@@ -113,10 +114,20 @@ reopened window. The test moved the icon to the panel centre to verify anchoring
 
 ![Gitify's visible white tray icon and reopened window on GNOME 50](images/gnome50-visible-tray.png)
 
+### Results from 30 September 2026
+
+- GNOME 50.1 and 51.0: native GTK placement and both setup-page states passed.
+- GNOME 51.0 with Ubuntu AppIndicator and a packaged Gitify build from
+  `gitify-app/gitify#3297` at `2af816c8`: tray activation, window-manager close,
+  reopen, and anchoring after moving the tray icon passed. The reopened frame
+  was `500×400` at `473,40`; the icon visibility check found 52 bright pixels.
+- The test used software rendering and a 1280×800 virtual monitor. Physical
+  clicks, fractional scaling, and multiple monitors remain manual checks.
+
 ## Visual VM checks before release
 
 Use a disposable GNOME Wayland VM with a graphical login and a snapshot before
-installation. Start with GNOME 50. Test older versions separately before
+installation. Cover GNOME 50 and 51. Test older versions separately before
 adding them to `metadata.json`. Record the actual Shell and
 AppIndicator versions, Gitify build, display scale, and session type.
 

@@ -20,6 +20,8 @@ jobs:
         include:
           - shell: '50'
             image: ubuntu:26.04@sha256:cd21a4f68a617580279d4b091cb18e3af9fa8a87500665f0ae5f7f757d17d367
+          - shell: '51'
+            image: ubuntu:26.10@sha256:b18403eb2d06baad26fe088450af83744e456d0e7c46d8319d460ce3a39e1f16
     permissions:
       contents: read
     steps:
@@ -32,7 +34,9 @@ jobs:
           GNOME_TEST_IMAGE: ${{ matrix.image }}
         run: docker build --build-arg GNOME_TEST_IMAGE="$GNOME_TEST_IMAGE" -f tests/shell/Dockerfile -t gitify-gnome-test .
       - name: Verify placement in GNOME Wayland
-        run: docker run --rm gitify-gnome-test
+        env:
+          GNOME_TEST_VERSION: ${{ matrix.shell }}
+        run: docker run --rm -e GNOME_TEST_VERSION="$GNOME_TEST_VERSION" gitify-gnome-test
 
   lint:
     name: Lint Code [vite-plus]
