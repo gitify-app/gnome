@@ -1,0 +1,4 @@
+# Ubuntu 26.04 is a hosted runner, but actionlint 1.7.12 predates its label.
+self-hosted-runner:
+  labels:
+    - ubuntu-26.04
