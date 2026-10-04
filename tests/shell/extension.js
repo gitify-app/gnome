@@ -59,7 +59,7 @@ export default class SmokeTest extends Extension {
             this._later(700, () => this._activateTray());
             return;
           }
-          this._capture(result);
+          void this._capture(result);
           return;
         }
         GLib.file_set_contents(GLib.getenv('GITIFY_TEST_RESULT'), JSON.stringify(result));
