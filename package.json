@@ -25,7 +25,7 @@
     "bundle": "scripts/bundle.sh"
   },
   "devDependencies": {
-    "vite-plus": "0.3.3"
+    "vite-plus": "1.0.0"
   },
   "devEngines": {
     "runtime": {
