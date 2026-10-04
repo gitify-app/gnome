@@ -1,5 +1,5 @@
 ARG GNOME_TEST_IMAGE=ubuntu:26.04@sha256:cd21a4f68a617580279d4b091cb18e3af9fa8a87500665f0ae5f7f757d17d367
-FROM ${GNOME_TEST_IMAGE} # NOSONAR docker:S8431
+FROM ${GNOME_TEST_IMAGE}
 
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
     dbus-x11 gir1.2-gdkpixbuf-2.0 gir1.2-gtk-4.0 gnome-shell gnome-shell-extension-appindicator python3-gi \
