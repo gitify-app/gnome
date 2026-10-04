@@ -20,26 +20,6 @@
       "description": "Remove word `dependency` from commit messages and PR titles",
       "matchDatasources": ["npm"],
       "commitMessageTopic": "{{depName}}"
-    },
-    {
-      "description": "The smoke-test base image is pinned by digest with its Ubuntu tag kept in a comment, and is managed by the custom manager below",
-      "matchManagers": ["dockerfile"],
-      "matchFileNames": ["tests/shell/Dockerfile"],
-      "matchDepNames": ["ubuntu"],
-      "enabled": false
-    }
-  ],
-  "customManagers": [
-    {
-      "customType": "regex",
-      "description": "Track the Ubuntu base image of the shell smoke test by the tag in its digest-pin comment, so Renovate follows the tag instead of falling back to `latest`",
-      "fileMatch": ["tests/shell/Dockerfile"],
-      "matchStrings": [
-        "ARG\\s+GNOME_TEST_IMAGE=ubuntu@sha256:(?<currentDigest>[a-f0-9]{64})\\s*#\\s*ubuntu:(?<currentValue>[^\\s#]+)"
-      ],
-      "datasourceTemplate": "docker",
-      "depNameTemplate": "ubuntu",
-      "versioningTemplate": "docker"
     }
   ]
 }
