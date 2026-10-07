@@ -72,16 +72,20 @@ application.connect('activate', () => {
     if (installed) {
       open.emit('clicked');
     }
-    for (const title of ['Get Gitify', 'Set up AppIndicator']) {
+    await ['Get Gitify', 'Set up AppIndicator'].reduce(async (promise, title) => {
+      await promise;
       const link = all.find(
         (widget) => widget instanceof Gtk.Button && widget.tooltip_text === title,
       );
       assert(link, `Missing link: ${title}`);
       link.emit('clicked');
       await delay(500);
-    }
+    }, Promise.resolve());
     const actionsPath = GLib.getenv('GITIFY_PREFS_ACTIONS');
-    for (let attempt = 0; attempt < 20; attempt++) {
+    const waitForActions = async (attempt = 0) => {
+      if (attempt === 20) {
+        throw new Error('Expected app/browser launches did not reach the desktop handlers');
+      }
       if (GLib.file_test(actionsPath, GLib.FileTest.EXISTS)) {
         const [, bytes] = GLib.file_get_contents(actionsPath);
         const actions = new TextDecoder().decode(bytes);
@@ -104,8 +108,9 @@ application.connect('activate', () => {
         }
       }
       await delay(100);
-    }
-    throw new Error('Expected app/browser launches did not reach the desktop handlers');
+      return waitForActions(attempt + 1);
+    };
+    await waitForActions();
   })().catch((error) => {
     failure = error;
     application.quit();
