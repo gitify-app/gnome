@@ -1,6 +1,18 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["github>gitify-app/.github"],
+  "dockerfile": {
+    "description": "Track tests/shell/Dockerfile, which the inherited global ignorePaths excludes via **/tests/**.",
+    "ignorePaths": [
+      "**/node_modules/**",
+      "**/bower_components/**",
+      "**/vendor/**",
+      "**/examples/**",
+      "**/__tests__/**",
+      "**/test/**",
+      "**/__fixtures__/**"
+    ]
+  },
   "packageRules": [
     {
       "description": "Keep the supported Node range separate from the development runtime pin.",
