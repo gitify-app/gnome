@@ -1,6 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>gitify-app/.github"],
+  "extends": ["github>gitify-app/renovate-config"],
   "dockerfile": {
     "description": "Track tests/shell/Dockerfile, which the inherited global ignorePaths excludes via **/tests/**.",
     "ignorePaths": [
