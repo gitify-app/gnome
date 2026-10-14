@@ -66,4 +66,5 @@ release at <https://extensions.gnome.org/upload/>. The site assigns the integer
 `version` in `metadata.json` itself, so that field is omitted here.
 
 <!-- LINK LABELS -->
+
 [gitify-repo]: https://github.com/gitify-app/gitify
