@@ -1,4 +1,4 @@
-# 🐾 Gitify GNOME Shell extension
+# 🐧 Gitify GNOME Shell extension
 
 Anchors the [Gitify](https://gitify.io) window to its tray icon on GNOME.
 
