@@ -6,7 +6,7 @@ This repository holds the GNOME Shell extension only. See the [README](README.md
 for what it does and how to install it, and [Gitify][gitify-repo] for the app
 itself.
 
-## Development
+## 🛠️ Development
 
 Tooling is unified through [Vite+](https://vite.plus) (oxlint and oxfmt), the
 same setup as the main Gitify repository.
@@ -54,7 +54,7 @@ available with:
 journalctl -f -o cat /usr/bin/gnome-shell
 ```
 
-## Releasing
+## 🚢 Releasing
 
 Releases are cut by [release-please](https://github.com/googleapis/release-please)
 from conventional commits on `main`. Merging the release PR tags the repo,
