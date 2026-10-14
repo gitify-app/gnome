@@ -12,7 +12,7 @@ This extension listens for the Gitify window being mapped and moves it directly
 below the Gitify tray icon, falling back to the top-right corner of the primary
 monitor when the icon cannot be located.
 
-## Requirements
+## 📋 Requirements
 
 - GNOME Shell 50 or 51 on a Wayland session.
 - Gitify 7.8 or newer.
@@ -24,21 +24,21 @@ monitor when the icon cannot be located.
 On an X11 session, or when Gitify's **Use X11 backend** setting is enabled,
 Gitify positions its own window and this extension is not needed.
 
-## Install
+## 🚀 Install
 
 After installing the extension, open its settings in GNOME Extensions or
 Extension Manager for **Set up Gitify**. The page links to the Gitify download
 and AppIndicator setup, and can open Gitify when a desktop installation is
 detected. Portable AppImages may need to be opened from your files.
 
-### From extensions.gnome.org
+### 🌐 From extensions.gnome.org
 
 [Gitify on GNOME Extensions](https://extensions.gnome.org/extension/10968/gitify/)
 provides version 0.1.0 for GNOME Shell 50. For GNOME Shell 51, use a release
 bundle whose metadata includes Shell 51 until that version is published on
 extensions.gnome.org.
 
-### From a release bundle
+### 🎁 From a release bundle
 
 Download `gitify@gitify.io.shell-extension.zip` from the
 [latest release](https://github.com/gitify-app/gnome/releases/latest), then:
@@ -58,7 +58,7 @@ Gitify 7.8.0 users should enable **Use white tray icon** in Tray settings for
 the default dark GNOME panel. The automatic white-icon fix is in
 [gitify#3297](https://github.com/gitify-app/gitify/pull/3297).
 
-## How it works
+## 🔧 How it works
 
 `extension.js` connects to the window manager's `map` signal. When the mapped
 window belongs to Gitify (its app id contains `gitify`, or it is a development
@@ -74,71 +74,17 @@ on each panel entry. That is a private field of a third-party extension, so it
 is accessed defensively; if it goes away the extension degrades to corner
 placement rather than failing.
 
-## Development
+## 🤝 Contributing
 
-Tooling is unified through [Vite+](https://vite.plus) (oxlint and oxfmt), the
-same setup as the main Gitify repository.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development, testing, and
+release instructions.
 
-```shell
-pnpm install
-
-# Lint and format checks
-pnpm check
-
-# Auto-fix formatting and lint issues
-pnpm check:fix
-
-# Placement and lifecycle regression tests
-pnpm test
-
-# Real GNOME Wayland smoke test, with GNOME Shell and PyGObject installed
-pnpm test:shell
-
-# Build dist/gitify@gitify.io.shell-extension.zip
-pnpm bundle
-```
-
-The extension itself can only run inside GNOME Shell. To try a change without
-logging out, install it into your user extensions directory and start a nested
-shell:
-
-```shell
-ln -s "$PWD/gitify@gitify.io" ~/.local/share/gnome-shell/extensions/gitify@gitify.io
-dbus-run-session -- gnome-shell --devkit --wayland
-```
-
-GNOME 45–48 use `--nested` instead of `--devkit`. GNOME 49 and newer may
-require the `mutter-devkit` package. See the
-[GNOME debugging guide](https://gjs.guide/extensions/development/debugging.html).
-
-See [desktop validation](docs/testing.md) for the isolated compositor test,
-Gitify tray test, and VM checks before release.
-
-Then enable it inside the nested session and launch Gitify from a terminal in
-that session. Shell logs, including anything the extension prints, are
-available with:
-
-```shell
-journalctl -f -o cat /usr/bin/gnome-shell
-```
-
-## Releasing
-
-Releases are cut by [release-please](https://github.com/googleapis/release-please)
-from conventional commits on `main`. Merging the release PR tags the repo,
-updates `CHANGELOG.md` and the `version-name` in `metadata.json`, and attaches
-the packed `.shell-extension.zip` to the GitHub release.
-
-Publishing to extensions.gnome.org is a manual step: upload the zip from the
-release at <https://extensions.gnome.org/upload/>. The site assigns the integer
-`version` in `metadata.json` itself, so that field is omitted here.
-
-## Credits
+## 👏 Credits
 
 The original extension was written by [@SiriusCrain](https://github.com/SiriusCrain)
 in [gitify-app/gitify#3297](https://github.com/gitify-app/gitify/pull/3297) and
 moved here so it can be reviewed and distributed through extensions.gnome.org.
 
-## License
+## 📄 License
 
 [MIT](LICENSE)
