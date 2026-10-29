@@ -2,6 +2,6 @@ rules:
   unpinned-uses:
     config:
       policies:
-        "*": hash-pin
+        '*': hash-pin
         # Permit a mutable ref only for the trusted shared validator.
-        "gitify-app/renovate-config/.github/workflows/renovate-config-validator.yml": ref-pin
+        gitify-app/renovate-config/.github/workflows/renovate-config-validator.yml: ref-pin
