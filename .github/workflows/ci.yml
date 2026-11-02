@@ -51,9 +51,13 @@ jobs:
           persist-credentials: false
 
       - name: Setup Vite+
-        uses: voidzero-dev/setup-vp@v1.21.2
+        uses: voidzero-dev/setup-vp@v1.22.0
         with:
+          node-version-file: .nvmrc
           cache: true
+
+      - name: Run lint with GitHub annotations
+        run: vp run lint:ci
 
       - name: Run lint and format checks
         run: vp run check
@@ -91,8 +95,9 @@ jobs:
           persist-credentials: false
 
       - name: Setup Vite+
-        uses: voidzero-dev/setup-vp@v1.21.2
+        uses: voidzero-dev/setup-vp@v1.22.0
         with:
+          node-version-file: .nvmrc
           cache: true
 
       - name: Bundle extension
