@@ -2,6 +2,6 @@ rules:
   unpinned-uses:
     config:
       policies:
-        '*': hash-pin
-        # Permit a mutable ref only for the trusted shared validator.
-        gitify-app/renovate-config/.github/workflows/renovate-config-validator.yml: ref-pin
+        # .github/workflows/actions.lock pins each action ref to a commit.
+        # Restore hash-pin once a zizmor release reads the lockfile (zizmorcore/zizmor#2477).
+        '*': ref-pin
