@@ -20,6 +20,7 @@
     "check:fix": "vp check --fix",
     "lint": "vp lint --fix",
     "lint:check": "vp lint",
+    "lint:ci": "vp lint --format=github",
     "format": "vp fmt",
     "format:check": "vp fmt --check",
     "bundle": "scripts/bundle.sh"
