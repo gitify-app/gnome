@@ -17,6 +17,9 @@ pnpm install
 # Lint and format checks
 pnpm check
 
+# CI lint with GitHub annotations
+pnpm lint:ci
+
 # Auto-fix formatting and lint issues
 pnpm check:fix
 
