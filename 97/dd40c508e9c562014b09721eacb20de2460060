@@ -1,0 +1,14 @@
+gitify@gitify.io/metadata.json
+  h_ac004aadb63da9 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "97dd40c508e9c562014b09721eacb20de2460060",
+  "prompts": {},
+  "humans": {
+    "h_ac004aadb63da9": {
+      "author": "Adam Setch <adam.setch@outlook.com>"
+    }
+  }
+}
